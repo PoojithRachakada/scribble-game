@@ -1,0 +1,229 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f7fb;
+  --panel: #ffffff;
+  --panel-border: #dde3f0;
+  --text: #1f2a44;
+  --muted: #5f6f92;
+  --primary: #5567ff;
+  --primary-dark: #4151dd;
+  --secondary: #eef1ff;
+  --success: #1f9d69;
+  --danger: #ef476f;
+  --shadow: 0 18px 40px rgba(41, 53, 108, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #edf2ff 0%, var(--bg) 100%);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+button.secondary {
+  background: var(--secondary);
+  color: var(--text);
+}
+
+button.secondary:hover {
+  background: #dfe5ff;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.app-shell {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 2.4rem;
+}
+
+.tagline,
+.hosting-note {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 320px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.panel-heading,
+.players-header,
+.room-row,
+.action-row,
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.panel-heading,
+.players-header {
+  justify-content: space-between;
+}
+
+.room-row input,
+.action-row button,
+#join-btn,
+#leave-btn,
+#ready-btn,
+#start-btn {
+  flex: 1;
+}
+
+label {
+  display: block;
+  margin: 14px 0 8px;
+  font-weight: 700;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: 1px solid #ccd5ea;
+  border-radius: 12px;
+  padding: 0.85rem 0.9rem;
+  background: #fff;
+}
+
+.status {
+  min-height: 24px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: var(--primary-dark);
+  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.players-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.players-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #e1e6f5;
+  border-radius: 14px;
+  background: #fafbff;
+}
+
+.player-ready {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.player-waiting {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.start-block {
+  margin-top: 18px;
+}
+
+.start-btn {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.game-panel {
+  min-height: 100%;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.toolbar {
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.toolbar label {
+  margin: 0;
+}
+
+#scribble-canvas {
+  width: 100%;
+  border: 2px dashed #cad3ee;
+  border-radius: 18px;
+  background: #fff;
+  touch-action: none;
+}
+
+@media (max-width: 1080px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Made with Bob */

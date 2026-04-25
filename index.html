@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scribble Party</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <h1>Scribble Party</h1>
+      <p class="tagline">A simple multiplayer drawing game for families and friends.</p>
+      <p class="hosting-note">
+        Host the site on GitHub Pages and use a shared backend project for live rooms.
+      </p>
+    </header>
+
+    <main class="layout">
+      <section class="panel" id="join-panel">
+        <h2>Join a Game</h2>
+        <label for="player-name">Your name</label>
+        <input id="player-name" type="text" maxlength="24" placeholder="Type your name" />
+
+        <label for="room-id">Room code</label>
+        <div class="room-row">
+          <input id="room-id" type="text" maxlength="12" placeholder="Enter room code" />
+          <button id="create-room-btn" type="button">Create room</button>
+        </div>
+
+        <div class="action-row">
+          <button id="join-btn" type="button">Join</button>
+          <button id="leave-btn" type="button" class="secondary">Leave</button>
+        </div>
+
+        <p class="status" id="status-text">Not connected</p>
+      </section>
+
+      <section class="panel" id="lobby-panel">
+        <div class="panel-heading">
+          <h2>Lobby</h2>
+          <span class="badge" id="room-label">Room: --</span>
+        </div>
+
+        <div class="players-block">
+          <div class="players-header">
+            <h3>Players</h3>
+            <button id="ready-btn" type="button">I am ready</button>
+          </div>
+          <ul id="players-list" class="players-list"></ul>
+        </div>
+
+        <div class="start-block">
+          <p id="start-hint">Everyone joins, then each player clicks ready. Any player can start once all are ready.</p>
+          <button id="start-btn" type="button" class="start-btn">Start Game</button>
+        </div>
+      </section>
+
+      <section class="panel game-panel" id="game-panel">
+        <div class="panel-heading">
+          <h2>Game Board</h2>
+          <span class="badge" id="phase-badge">Waiting</span>
+        </div>
+
+        <div class="game-info">
+          <p><strong>Round word:</strong> <span id="prompt-word">Waiting for game start...</span></p>
+          <p><strong>Timer:</strong> <span id="round-timer">60</span>s</p>
+        </div>
+
+        <div class="toolbar">
+          <label for="brush-color">Color</label>
+          <input id="brush-color" type="color" value="#ff4d6d" />
+          <label for="brush-size">Size</label>
+          <input id="brush-size" type="range" min="2" max="18" value="6" />
+          <button id="clear-btn" type="button" class="secondary">Clear</button>
+        </div>
+
+        <canvas id="scribble-canvas" width="900" height="500"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
