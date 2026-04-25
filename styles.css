@@ -101,7 +101,8 @@ button:disabled {
 .players-header,
 .room-row,
 .action-row,
-.toolbar {
+.toolbar,
+.guess-row {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -127,12 +128,17 @@ label {
   font-weight: 700;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
   width: 100%;
   border: 1px solid #ccd5ea;
   border-radius: 12px;
   padding: 0.85rem 0.9rem;
   background: #fff;
+}
+
+#play-mode {
+  width: 100%;
 }
 
 .status {
@@ -210,6 +216,18 @@ input[type="text"] {
 
 .toolbar label {
   margin: 0;
+}
+
+.guess-panel {
+  margin-bottom: 14px;
+}
+
+.guess-row input {
+  flex: 1;
+}
+
+.player-select-btn {
+  text-align: left;
 }
 
 #scribble-canvas {

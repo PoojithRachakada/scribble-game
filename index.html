@@ -19,6 +19,13 @@
     <main class="layout">
       <section class="panel" id="join-panel">
         <h2>Join a Game</h2>
+
+        <label for="play-mode">Play mode</label>
+        <select id="play-mode">
+          <option value="single" selected>Single Device</option>
+          <option value="multi">Multi Device</option>
+        </select>
+        <p class="status" id="mode-status">Single-device mode is active.</p>
         <label for="player-name">Your name</label>
         <input id="player-name" type="text" maxlength="24" placeholder="Type your name" />
 
@@ -63,7 +70,8 @@
         </div>
 
         <div class="game-info">
-          <p><strong>Round word:</strong> <span id="prompt-word">Waiting for game start...</span></p>
+          <p><strong>Drawer:</strong> <span id="drawer-name">Waiting...</span></p>
+          <p><strong>Secret word:</strong> <span id="prompt-word">Waiting for game start...</span></p>
           <p><strong>Timer:</strong> <span id="round-timer">60</span>s</p>
         </div>
 
@@ -75,11 +83,21 @@
           <button id="clear-btn" type="button" class="secondary">Clear</button>
         </div>
 
+        <div class="guess-panel">
+          <label for="guess-input">Guess the word</label>
+          <div class="guess-row">
+            <input id="guess-input" type="text" maxlength="40" placeholder="Type your guess" />
+            <button id="guess-btn" type="button">Guess</button>
+          </div>
+          <p class="status" id="guess-status">Only guessers can submit guesses.</p>
+          <p class="status" id="guess-feed">No guesses yet.</p>
+        </div>
+
         <canvas id="scribble-canvas" width="900" height="500"></canvas>
       </section>
     </main>
   </div>
 
-  <script type="module" src="./app.js"></script>
+  <script src="./app.js" defer></script>
 </body>
 </html>
