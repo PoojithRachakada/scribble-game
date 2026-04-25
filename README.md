@@ -14,7 +14,7 @@ The current code in [`index.html`](scribble-game/index.html), [`styles.css`](scr
 - Local two-window mode
 - A visible multi-device placeholder in the UI
 
-## Play modes
+## How to play
 
 ### 1. Single-device mode
 
@@ -23,16 +23,22 @@ Best for:
 - siblings sharing one laptop
 - quick local play without setup
 
-Flow:
+How to play:
 1. Open [`index.html`](scribble-game/index.html)
-2. Type player 1 name and join
-3. Type player 2 name and join
+2. Type player 1 name and click **Join**
+3. Type player 2 name and click **Join**
 4. Repeat for all players
-5. Make everyone ready
-6. Start the round
-7. One player becomes the drawer
-8. Drawer draws on the canvas
-9. Other players guess on the same device
+5. Click each player from the players list
+6. Click **I am ready** for each player
+7. Click **Start Game**
+8. One player becomes the drawer
+9. The drawer draws on the canvas
+10. Other players guess on the same screen
+
+Notes:
+- The drawer can draw until the timer ends
+- Guessers can keep guessing until the timer ends
+- If a correct guess happens, the round ends immediately
 
 ### 2. Local two-window mode
 
@@ -41,35 +47,48 @@ Best for:
 - keeping the secret word hidden from guessers
 - local play without a backend
 
-How to use:
+How to open:
 1. Open one browser window using [`index.html?view=drawer`](scribble-game/index.html)
 2. Open another browser window using [`index.html?view=guesser`](scribble-game/index.html)
 3. Use the same browser on the same device
-4. Create room and join players
-5. Start the round
-6. Drawer window can draw and see the word
-7. Guesser window can guess and cannot see the word
-8. Both windows show guess feedback
 
-Important:
-- this works only on the same device and same browser storage
-- it does not support different phones or different laptops
+How to play:
+1. In either window, create a room and join players
+2. Make all players ready
+3. Start the round
+4. The **drawer window**:
+   - can see the secret word
+   - can draw on the canvas
+   - can see guess feedback
+   - cannot submit guesses
+5. The **guesser window**:
+   - cannot see the secret word
+   - can type guesses
+   - can see whether guesses are right or wrong
+   - cannot draw
+
+Notes:
+- Both windows share the same local browser storage
+- Drawing and guess feedback sync across the two windows
+- This works only on the same device and same browser
+- It does not support different phones or different laptops
 
 ### 3. Future multi-device mode
 
-This is only planned for later.
+This mode is planned for later.
 
-For true multi-device play, a backend will be required for:
-- room state
-- player list
-- live drawing sync
-- guesses
-- score updates
+Intended play flow later:
+1. Each player opens the game on their own device
+2. One player creates a room
+3. Other players join with the room code
+4. Everyone clicks ready
+5. Game starts after all are ready
+6. One player becomes the drawer
+7. Only the drawer sees the secret word
+8. Other players watch the drawing and guess
+9. Drawing, guesses, timer, and scores sync live across devices
 
-Recommended later options:
-- Firebase Realtime Database
-- Supabase
-- a small Node.js WebSocket server
+To make this work later, a backend/database will be required.
 
 ## Why no shared JSON file for real multiplayer
 
@@ -83,8 +102,6 @@ Use locally for now:
 - normal [`index.html`](scribble-game/index.html) for single-device play
 - [`index.html?view=drawer`](scribble-game/index.html) for drawer window
 - [`index.html?view=guesser`](scribble-game/index.html) for guesser window
-
-This keeps the game simple for now.
 
 ---
 
@@ -104,8 +121,6 @@ What that will **not** support by itself:
 - true multiplayer across different devices
 
 For true multi-device play, a backend database is required.
-
----
 
 ## Database-backed hosting for future real multi-device play
 
@@ -219,8 +234,6 @@ So the later architecture becomes:
 
 - hosted frontend for [`index.html`](scribble-game/index.html), [`styles.css`](scribble-game/styles.css), and [`app.js`](scribble-game/app.js:1)
 - Firebase Realtime Database for multiplayer state
-
----
 
 ## Future configuration checklist
 
